@@ -9,6 +9,11 @@ class MerchantService
         parse_json(response)
     end
 
+    def self.get_merchant_items(id)
+        response = conn.get("api/v1/merchants/#{id}/items")
+        parse_json(response)
+    end
+
     def self.conn
         Faraday.new(url: 'http://localhost:3000')
     end
